@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: >
+  !! Be aware that this stack may incur costs !!
+  !! Default instance is t3.nano (~ 0.01$/h) !!
+  !! You should delete the stack when you are done !!
+
+Parameters:
+  AmiId:
+    # The latest AMI ID is stored in one of the aws session manager parameter store public parameters
+    # You can find all latest linux ami parameters (x86, amd, kernel 5, ...) by following this link
+    # https://eu-west-1.console.aws.amazon.com/systems-manager/parameters/?region=eu-west-1&tab=PublicTable#public_parameter_service=ami-amazon-linux-latest
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
+ InstanceType:
+    Type: String
+    Default: t3.nano
+
+Resources:
+  Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: 
+        Ref: AmiId
+      InstanceType:
+        Ref: InstanceType
+      Tags:
+        - Key: Name
+          Value: 
+            Ref: AWS::StackName
