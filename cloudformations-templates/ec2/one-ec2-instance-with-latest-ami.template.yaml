@@ -4,7 +4,7 @@ Description: >
   !! This stack may incur (small) costs !!
   !! Default instance is t3.nano (~ 0.01$/h) !!
   !! You should delete the stack when you are done !!
-  !! You should NOT create this in a production account (rather sandbox or dev accoount) !!
+  !! You should NOT create this in a production account (rather sandbox or dev account) !!
 
 Parameters:
   AmiId:
