@@ -17,7 +17,8 @@ aws s3 cp $folder$templatename s3://$bucketname/cloudformation-templates/$folder
 stackname=$(echo $templatename |cut -d. -f1)
 cloudformationurl="https://$region.console.aws.amazon.com/cloudformation/home?region=$region#/stacks/create/review?"
 templateurl="https://s3.$region.amazonaws.com/$bucketname/cloudformation-templates/$folder$templatename"
+stackreviewurl="$cloudformationurl?templateURL=$templateurl&stackName=$stackname"
 
-echo "[CREATE STACK $stackname]($cloudformationurl?templateURL=$templateurl&stackName=$stackname) | [download-template]($templateurl)" >> $readmefile
+echo "<a href='$stackreviewurl' target='_blank'>CREATE STACK $stackname</a> | [download-template]($templateurl)" >> $readmefile
 done
 done
