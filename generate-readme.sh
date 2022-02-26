@@ -13,7 +13,11 @@ cat << EOF > $readmefile
 ##### For simplicity each template uses :
 ##### - Ireland Region (eu-west-1)
 ##### - AWS Account "Default VPC" Network
+##### - Assume that you are using an admin user or role (in a sanbox or dev account)
 ---
+---
+| Simplest Example Stack |  Template | Diagram |
+| --- | --- | --- |
 EOF
 
 for folder in $(ls ./cloudformation-templates); do
@@ -36,6 +40,6 @@ for folder in $(ls ./cloudformation-templates); do
     architecturediagramlink="[view-architecture-diagram]($architecturediagramurl)"
    
     # Add links to readme file 
-    echo "$stackreviewlink | $templatedownloadlink | $architecturediagramlink" >> $readmefile
+    echo "| $stackreviewlink | $templatedownloadlink | $architecturediagramlink |" >> $readmefile
   done
 done
