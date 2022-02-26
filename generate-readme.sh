@@ -5,16 +5,14 @@ bucketname='welcloud.io.aws-simplest-example'
 readmefile='readme.md'
 cat << EOF > $readmefile
 ### Ready to use Cloudformation templates
-###### !! These templates may incur (small) costs !!
-###### !! So, you should delete them when you are done !!
-###### !! You should NOT create them in a production account !!
-###### !! Create them in a sandbox or dev account for learning purpose !!
+###### !! These templates may incur (small) costs. Delete them when you are done !!
+###### !! They are built for learning purpose !!
+###### !! You should create them in a sandbox or dev account (NOT a production Account) !!
 ---
 ##### For simplicity each template uses :
 ##### - Ireland Region (eu-west-1)
 ##### - AWS Account "Default VPC" Network
 ##### - Assume that you are using an admin user or role (in a sanbox or dev account)
----
 ---
 | Simplest Example Stack |  Template | Diagram |
 | --- | --- | --- |
