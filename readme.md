@@ -1,12 +1,12 @@
 ### Ready to use Cloudformation templates
 ###### !! These templates may incur (small) costs. Delete them when you are done !!
-###### !! They are built for learning purpose !!
+###### !! They are built for AWS and for learning purpose !!
 ###### !! You should create them in a sandbox or dev account (NOT a production Account) !!
 ---
-##### For simplicity each template uses :
-##### - Ireland Region (eu-west-1)
-##### - AWS Account "Default VPC" Network
-##### - Assume that you are using an admin user or role (in a sanbox or dev account)
+##### For simplicity each template :
+##### - Uses Ireland Region (eu-west-1)
+##### - Uses AWS Account "Default VPC" Network
+##### - Assumes that you are using an admin user or role (in a sanbox or dev account)
 ---
 | Simplest Example Stack |  Template | Diagram |
 | --- | --- | --- |
