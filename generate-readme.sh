@@ -10,9 +10,9 @@ cat << EOF > $readmefile
 ###### !! You should create them in a sandbox or dev account (NOT a production Account) !!
 ---
 ##### For simplicity each template :
-##### - Uses Ireland Region (eu-west-1)
+##### - Uses AWS Ireland Region (eu-west-1)
 ##### - Uses AWS Account "Default VPC" Network
-##### - Assumes that you are using an admin user or role (in a sanbox or dev account)
+##### - Assumes that you are logged in with an IAM admin user or role (in a sanbox or dev account)
 ---
 | Simplest Example Stack |  Template | Diagram |
 | --- | --- | --- |
