@@ -1,8 +1,6 @@
-bucketname='welcloud.io.aws-simplest-example'
-folder='ec2'
-templatename='one-ec2-instance-with-latest-ami.template.yaml'
-
 region='eu-west-1'
+bucketname='welcloud.io.aws-simplest-example'
+
 readmefile='../readme.md'
 cat << EOF > $readmefile
 ### Ready to use Cloudformation templates
@@ -26,6 +24,6 @@ cloudformationurl="https://$region.console.aws.amazon.com/cloudformation/home?re
 templateurl="https://s3.$region.amazonaws.com/$bucketname/cloudformation-templates/$folder$templatename"
 stackreviewurl="$cloudformationurl?templateURL=$templateurl&stackName=$stackname"
 
-echo "<a href='$stackreviewurl' target='_blank'>CREATE STACK $stackname</a> | [download-template]($templateurl)" >> $readmefile
+echo "<a href='$stackreviewurl' target='_blank'>CREATE STACK $stackname</a> | [download-template]($templateurl) | [view-architecture-diagram](../architecture-diagrams/one-ec2-instance-with-latest-ami.png)" >> $readmefile
 done
 done
