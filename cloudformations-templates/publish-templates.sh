@@ -6,7 +6,11 @@ region='eu-west-1'
 readmefile='../readme.md'
 cat << EOF > $readmefile
 ### Ready to use Cloudformation templates
+###### !! These templates may incur (small) costs !!
+###### !! You should delete them when done !!
+---
 #### Region = eu-west-1 (Ireland)
+#### VPC = Default
 ---
 EOF
 
