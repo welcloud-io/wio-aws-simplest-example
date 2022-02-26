@@ -7,10 +7,11 @@ readmefile='../readme.md'
 cat << EOF > $readmefile
 ### Ready to use Cloudformation templates
 ###### !! These templates may incur (small) costs !!
-###### !! You should delete them when done !!
+###### !! You should delete them when you are done !!
 ---
-#### Region = eu-west-1 (Ireland)
-#### VPC = Default
+##### For simplicity each template uses :
+##### - Ireland Region (eu-west-1)
+##### - AWS Account "Default VPC" Network
 ---
 EOF
 
