@@ -1,6 +1,8 @@
 ### Ready to use Cloudformation templates
 ###### !! These templates may incur (small) costs !!
-###### !! You should delete them when you are done !!
+###### !! So, you should delete them when you are done !!
+###### !! You should NOT create them in a production account !!
+###### !! Create them in a sandbox or dev account for learning purpose !!
 ---
 ##### For simplicity each template uses :
 ##### - Ireland Region (eu-west-1)
