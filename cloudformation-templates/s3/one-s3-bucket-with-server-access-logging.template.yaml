@@ -1,0 +1,62 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: >
+  !! This stack may incur (small) costs !!
+  !! You should delete the stack when you are done !!
+  !! You may be asked to empty buckets (i.e. delete bucket content manually) before deleting !!
+  !! You should NOT create this in a production account (rather a sandbox or dev account for learning) !!
+
+# Template readme :
+# This will create 2 buckets
+# The 2nd bucket will receive all server access logs from the first one
+# The log bucket (2nd bucket) must allow PutObject from 'logging.s3.amazonaws.com' in its bucket policy  
+# N.B. It can takes ONE HOUR before you can start seeing something into the logging bucket
+
+Parameters:
+  S3BucketName:
+    Type: String
+
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Ref S3BucketName
+      LoggingConfiguration:
+        DestinationBucketName: !Ref LoggingBucket
+        LogFilePrefix: !Sub "${S3BucketName}/"
+        
+  LoggingBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Sub "${S3BucketName}.server-access-logs"
+
+  LoggingBucketBucketPolicy:   
+    Type: AWS::S3::BucketPolicy
+    Properties: 
+      Bucket: !Ref LoggingBucket
+      PolicyDocument: !Sub
+      - | 
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "logging.s3.amazonaws.com"
+              },
+              "Action": "s3:PutObject",
+              "Resource": "arn:aws:s3:::${LoggingBucketName}/*",
+              "Condition": {
+                "ArnLike": {
+                  "aws:SourceArn": "arn:aws:s3:::${SourceBucket}"
+                },
+                "StringEquals": {
+                  "aws:SourceAccount": "${AWS::AccountId}"
+                }
+              }
+            }
+                        
+          ]
+        }
+      - LoggingBucketName: !Ref LoggingBucket
+        SourceBucket: !Ref S3Bucket      
