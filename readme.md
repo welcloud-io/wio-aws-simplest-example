@@ -5,7 +5,7 @@
 ---
 ##### For simplicity we assume :
 ##### - You are currently logged into an AWS account with an IAM admin user or role 
-##### - Your AWS account is a SANDBOX or DEV account
+##### - Your AWS account is a SANDBOX or a DEV account
 ##### - You are working in AWS Ireland Region (eu-west-1)
 ##### - You still have your "Default VPC" Network into your AWS Account
 ---

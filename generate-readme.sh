@@ -9,10 +9,11 @@ cat << EOF > $readmefile
 ###### !! They are built for AWS and for learning purpose !!
 ###### !! You should create them in a sandbox or dev account (NOT a production Account) !!
 ---
-##### For simplicity each template :
-##### - Uses AWS Ireland Region (eu-west-1)
-##### - Uses AWS Account "Default VPC" Network
-##### - Assumes that you are logged in with an IAM admin user or role (in a sanbox or dev account)
+##### For simplicity we assume :
+##### - You are currently logged into an AWS account with an IAM admin user or role 
+##### - Your AWS account is a SANDBOX or a DEV account
+##### - You are working in AWS Ireland Region (eu-west-1)
+##### - You still have your "Default VPC" Network into your AWS Account
 ---
 | Simplest Example Stack |  Template | Diagram |
 | --- | --- | --- |
