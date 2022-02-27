@@ -2,15 +2,15 @@ AWSTemplateFormatVersion: '2010-09-09'
 
 Description: >
   !! This stack may incur (small) costs !!
-  !! Default instance is t3.nano (~ 0.01$/h) !!
+  !! Default instance is t3.nano (~ $0.01/h) with an 8GiB EBS Volume (~ $0.03/day) !!
   !! You should delete the stack when you are done !!
   !! You should NOT create this in a production account (rather sandbox or dev account for learning) !!
 
 # Template readme :
 # The latest AMI ID is stored in aws systems manager (ssm) parameter store (public parameters)
 # e.g.: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
-# You can find all latest linux ami parameters (x86, arm, kernel 5, ...) by following this link
-# https://eu-west-1.console.aws.amazon.com/systems-manager/parameters/?region=eu-west-1&tab=PublicTable#public_parameter_service=ami-amazon-linux-latest
+# See all possible parameter values with the link provided in the stack outputs 
+# if you do not see them, create at least one parameter in parameter store
 
 Parameters:
   LatestAmiId:
@@ -32,3 +32,8 @@ Resources:
         - Key: Name
           Value: 
             Ref: AWS::StackName
+
+Outputs:
+  SSMPublicParametersUrl:
+    Description: "Link to SSM public parameters possible values for the latest linux ami"
+    Value: !Sub "https://${AWS::Region}.console.aws.amazon.com/systems-manager/parameters/?region=${AWS::Region}&tab=PublicTable#public_parameter_service=ami-amazon-linux-latest"            
