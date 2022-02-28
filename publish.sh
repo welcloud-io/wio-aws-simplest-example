@@ -1,7 +1,7 @@
 #!/bin/bash
 
 region='eu-west-1'
-bucketname='welcloud.io.aws-simplest-example'
+bucketname='welcloud.io.aws-simplest-examples'
 
 # Upload cloudformation templates to s3
 for folder in $(ls -d cloudformation-templates/*/); do

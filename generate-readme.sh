@@ -1,6 +1,6 @@
 #!/bin/bash
 region='eu-west-1'
-bucketname='welcloud.io.aws-simplest-example'
+bucketname='welcloud.io.aws-simplest-examples'
 
 readmefile='readme.md'
 cat << EOF > $readmefile
