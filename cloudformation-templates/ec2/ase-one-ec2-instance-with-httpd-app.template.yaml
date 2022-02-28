@@ -1,0 +1,58 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: >
+  !! This stack may incur (small) costs !!
+  !! Default instance is t3.nano (~ $0.01/h) with an 8GiB EBS Volume (~ $0.03/day) !!
+  !! You should delete the stack when you are done !!
+  !! This is designed for learning purpose (use a sandbox or a dev account) !!
+  !! You should NOT create this in a production account !!
+
+# Notes :
+# The latest AMI ID is stored in aws systems manager (ssm) parameter store (public parameters)
+
+Parameters:
+  LatestAmiId:
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
+  InstanceType:
+    Type: String
+    Default: t3.nano
+
+Resources:
+  Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: 
+        Ref: LatestAmiId
+      InstanceType:
+        Ref: InstanceType
+      SecurityGroupIds:
+      - Ref: InstanceSecurityGroup        
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -xe
+          yum install -y -q httpd
+          service httpd start
+          echo 'WELCOME TO THIS HTTPD APP !' > /var/www/html/index.html        
+      Tags:
+        - Key: Name
+          Value: 
+            Ref: AWS::StackName
+
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http connections
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '80'
+        ToPort: '80'
+        CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: 
+            Ref: AWS::StackName        
+
+Outputs:
+  InstancePublicDNS:
+    Value: !Sub 'http://${Instance.PublicDnsName}'
