@@ -36,7 +36,11 @@ for folder in $(ls ./cloudformation-templates); do
     # Create architecture diagram link
     architecturediagrampath="architecture-diagrams/$folder/$stackname.png"
     architecturediagramurl="https://s3.$region.amazonaws.com/$bucketname/$architecturediagrampath"
-    architecturediagramlink="[view]($architecturediagramurl)"
+    if [ -f $architecturediagrampath ]; then
+      architecturediagramlink="[view]($architecturediagramurl)"
+    else
+      architecturediagramlink="-"
+    fi
    
     # Add links to readme file 
     echo "| $stackreviewlink | $templatedownloadlink | $architecturediagramlink |" >> $readmefile
