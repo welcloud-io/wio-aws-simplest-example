@@ -31,12 +31,12 @@ for folder in $(ls ./cloudformation-templates); do
     stackreviewlink="<a href='$stackreviewurl' target='_blank'>CREATE STACK $stackname</a>"
     
     # Create stack creation link
-    templatedownloadlink="[download-template]($templateurl)"
+    templatedownloadlink="[download]($templateurl)"
     
     # Create architecture diagram link
     architecturediagrampath="architecture-diagrams/$folder/$stackname.png"
     architecturediagramurl="https://s3.$region.amazonaws.com/$bucketname/$architecturediagrampath"
-    architecturediagramlink="[view-architecture-diagram]($architecturediagramurl)"
+    architecturediagramlink="[view]($architecturediagramurl)"
    
     # Add links to readme file 
     echo "| $stackreviewlink | $templatedownloadlink | $architecturediagramlink |" >> $readmefile
