@@ -7,7 +7,7 @@ bucketname='welcloud.io.aws-simplest-examples'
 for folder in $(ls -d cloudformation-templates/*/); do
   for templatename in $(ls $folder); do
     templatepath=$folder$templatename
-    aws s3 cp $templatepath s3://$bucketname/$templatepath
+    aws s3 cp $templatepath s3://$bucketname/$templatepath --content-type 'text/plain'
   done
 done
 

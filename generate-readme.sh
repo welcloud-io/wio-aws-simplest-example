@@ -31,7 +31,7 @@ for folder in $(ls ./cloudformation-templates); do
     stackreviewlink="<a href='$stackreviewurl' target='_blank'>CREATE STACK $stackname</a>"
     
     # Create stack creation link
-    templatedownloadlink="[download]($templateurl)"
+    templatedownloadlink="[open]($templateurl)"
     
     # Create architecture diagram link
     architecturediagrampath="architecture-diagrams/$folder/$stackname.png"
