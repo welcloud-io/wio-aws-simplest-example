@@ -4,8 +4,9 @@ Description: >
   !! This stack may incur (small) costs !!
   !! Default instance is t3.nano (~ $0.01/h) with an 8GiB EBS Volume (~ $0.03/day) !!
   !! You should delete the stack when you are done !!
-  !! You should NOT create this in a production account (rather sandbox or dev account for learning) !!
-
+  !! This is designed for learning purpose (use a sandbox or a dev account) !!
+  !! YOU SHOULD NOT USE A PRODUCTION ACCOUNT FOR TESTING !!
+  
 # Template readme :
 # The latest AMI ID is stored in aws systems manager (ssm) parameter store (public parameters)
 # e.g.: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2

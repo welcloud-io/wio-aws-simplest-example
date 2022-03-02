@@ -5,7 +5,7 @@ Description: >
   !! Default instance is t3.nano (~ $0.01/h) with an 8GiB EBS Volume (~ $0.03/day) !!
   !! You should delete the stack when you are done !!
   !! This is designed for learning purpose (use a sandbox or a dev account) !!
-  !! You should NOT create this in a production account !!
+  !! YOU SHOULD NOT USE A PRODUCTION ACCOUNT FOR TESTING !!
 
 # Notes :
 # The latest AMI ID is stored in aws systems manager (ssm) parameter store (public parameters)
@@ -33,7 +33,7 @@ Resources:
           #!/bin/bash -xe
           yum install -y -q httpd
           service httpd start
-          echo 'WELCOME TO THIS HTTPD APP !' > /var/www/html/index.html        
+          echo 'WELCOME TO CLOUD COMPUTING !' > /var/www/html/index.html        
       Tags:
         - Key: Name
           Value: 

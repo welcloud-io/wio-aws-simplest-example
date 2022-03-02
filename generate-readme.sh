@@ -6,11 +6,11 @@ readmefile='readme.md'
 cat << EOF > $readmefile
 ### Ready to use Cloudformation templates
 ###### !! These templates may incur (small) costs. Delete them when you are done !!
-###### !! They are built for AWS and for learning purpose !!
-###### !! You should create them in a sandbox or dev account (NOT a production Account) !!
+###### !! They are built for AWS (Amazon Web Services) and for learning/test purpose !!
+###### !! You should test them in a sandbox or dev account (NOT a production Account) !!
 ---
 ##### For simplicity we assume :
-##### - You are currently logged into an AWS account with an IAM admin user or role 
+##### - You are currently logged-in an AWS account with an IAM ADMIN user or role 
 ##### - Your AWS account is a SANDBOX or a DEV account
 ##### - You are working in AWS Ireland Region (eu-west-1)
 ##### - You still have your "Default VPC" Network into your AWS Account
