@@ -1,14 +1,17 @@
 AWSTemplateFormatVersion: '2010-09-09'
 
 Description: >
-  !! This stack may incur (small) costs !!
-  !! Default instance is t3.nano (~ $0.01/h) with an 8GiB EBS Volume (~ $0.03/day) !!
+  !! This stack may incur (small) costs if your are not in free tier account !!
+  !! Default instance is t2.micro (~ $0.01/h) with an 8GiB EBS Volume (~ $0.03/day) !!
   !! You should delete the stack when you are done !!
   !! This is designed for learning purpose (use a sandbox or a dev account) !!
   !! YOU SHOULD NOT USE A PRODUCTION ACCOUNT FOR TESTING !!
 
-# Notes :
-# The latest AMI ID is stored in aws systems manager (ssm) parameter store (public parameters)
+# Template readme :
+# - The latest AMI ID is stored in aws systems manager (ssm) parameter store (public parameters)
+# - When the stack is created you should go to the "Outputs" tab and click on the http link
+#   n.b. : you may need to wait a few seconds for the app to be installed before you see the web page
+# - When done, you should delete the stack by clicking the delete button in CloudFormation
 
 Parameters:
   LatestAmiId:
@@ -16,7 +19,7 @@ Parameters:
     Default: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
   InstanceType:
     Type: String
-    Default: t3.nano
+    Default: t2.micro
 
 Resources:
   Instance:

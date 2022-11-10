@@ -7,7 +7,7 @@ cat << EOF > $readmefile
 ### Ready to use Cloudformation templates
 ###### !! These templates may incur (small) costs. Delete them when you are done !!
 ###### !! They are built for AWS (Amazon Web Services) and for learning/test purpose !!
-###### !! You should test them in a sandbox or dev account (NOT a production Account) !!
+###### !! You should test them in a sandbox or dev account (NOT in a production Account) !!
 ---
 ##### For simplicity we assume :
 ##### - You are currently logged-in an AWS account with an IAM ADMIN user or role 
@@ -15,8 +15,8 @@ cat << EOF > $readmefile
 ##### - You are working in AWS Ireland Region (eu-west-1)
 ##### - You still have your "Default VPC" Network into your AWS Account
 ---
-| Simplest Example Stack |  Template | Diagram |
-| --- | --- | --- |
+| Simplest Example | Stack | Template | Diagram |
+| --- | --- | --- | --- |
 EOF
 
 for folder in $(ls ./cloudformation-templates); do
@@ -28,8 +28,11 @@ for folder in $(ls ./cloudformation-templates); do
     cloudformationurl="https://$region.console.aws.amazon.com/cloudformation/home?region=$region#/stacks/create/review"
     templateurl="https://s3.$region.amazonaws.com/$bucketname/$templatepath"
     stackreviewurl="$cloudformationurl?templateURL=$templateurl&stackName=$stackname"
-    stackreviewlink="<a href='$stackreviewurl' target='_blank'>CREATE STACK $stackname</a>"
-    
+    stackreviewlink="<a href='$stackreviewurl' target='_blank'>$stackname</a>"
+
+    # Create stack creation link
+    templatecreatelink="<a href='$stackreviewurl' target='_blank'>DEPLOY</a>"
+   
     # Create stack creation link
     templatedownloadlink="[open]($templateurl)"
     
@@ -43,6 +46,6 @@ for folder in $(ls ./cloudformation-templates); do
     fi
    
     # Add links to readme file 
-    echo "| $stackreviewlink | $templatedownloadlink | $architecturediagramlink |" >> $readmefile
+    echo "| $stackreviewlink | $templatecreatelink | $templatedownloadlink | $architecturediagramlink |" >> $readmefile
   done
 done
